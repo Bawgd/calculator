@@ -1,0 +1,117 @@
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QListWidget, QTextEdit, QLabel, QLineEdit, QInputDialog
+import os
+app = QApplication([])
+
+expr = QLineEdit()
+calc = QPushButton("Вычислить")
+n1 = QPushButton("1")
+n2 = QPushButton("2")
+n3 = QPushButton("3")
+n4 = QPushButton("4")
+n5 = QPushButton("5")
+n6 = QPushButton("6")
+n7 = QPushButton("7")
+n8 = QPushButton("8")
+n9 = QPushButton('9')
+n0 = QPushButton("0")
+minus = QPushButton('-')
+plus = QPushButton('+')
+lv = QPushButton('/')
+um = QPushButton('*')
+
+def calc_func():
+    try:
+        i = eval(expr.text())
+        expr.setText(str(i))
+    except:
+        expr.setText('Ошибка')
+calc.clicked.connect(calc_func)
+
+def add_n1():
+    expr.setText(expr.text() + n1.text())
+n1.clicked.connect(add_n1)
+
+def add_n2():
+    expr.setText(expr.text() + n2.text())
+n2.clicked.connect(add_n2)
+
+def add_n3():
+    expr.setText(expr.text() + n3.text())
+n3.clicked.connect(add_n3)
+
+def add_n4():
+    expr.setText(expr.text() + n4.text())
+n4.clicked.connect(add_n4)
+
+def add_n5():
+    expr.setText(expr.text() + n5.text())
+n5.clicked.connect(add_n5)
+
+def add_n6():
+    expr.setText(expr.text() + n6.text())
+n6.clicked.connect(add_n6)
+
+def add_n7():
+    expr.setText(expr.text() + n7.text())
+n7.clicked.connect(add_n7)
+
+def add_n8():
+    expr.setText(expr.text() + n8.text())
+n8.clicked.connect(add_n8)
+
+def add_n9():
+    expr.setText(expr.text() + n9.text())
+n9.clicked.connect(add_n9)
+
+def add_n0():
+    expr.setText(expr.text() + n0.text())
+n0.clicked.connect(add_n0)
+
+def add_plus():
+    expr.setText(expr.text() + plus.text())
+plus.clicked.connect(add_plus)
+
+def add_minus():
+    expr.setText(expr.text() + minus.text())
+minus.clicked.connect(add_minus)
+
+def add_lv():
+    expr.setText(expr.text() + lv.text())
+lv.clicked.connect(add_lv)
+
+def add_um():
+    expr.setText(expr.text() + um.text())
+um.clicked.connect(add_um)
+
+l = QVBoxLayout()
+l1 = QHBoxLayout()
+l1.addWidget(n7)
+l1.addWidget(n8)
+l1.addWidget(n9)
+l1.addWidget(plus)
+l2 = QHBoxLayout()
+l2.addWidget(n4)
+l2.addWidget(n5)
+l2.addWidget(n6)
+l2.addWidget(minus)
+l3 = QHBoxLayout()
+l3.addWidget(n3)
+l3.addWidget(n2)
+l3.addWidget(n1)
+l3.addWidget(um)
+l4 = QHBoxLayout()
+l4.addWidget(n0)
+l4.addWidget(calc)
+l4.addWidget(lv)
+l.addWidget(expr)
+l.addLayout(l1)
+l.addLayout(l2)
+l.addLayout(l3)
+l.addLayout(l4)
+
+mai_window = QWidget()
+mai_window.setLayout(l)
+mai_window.show()
+
+app.exec()
